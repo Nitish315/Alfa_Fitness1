@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfa Fitness | Elite Gym & Cardio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alfa: {
+                            DEFAULT: '#FACC15', // Yellow-400 (Bright)
+                            dark: '#EAB308',    // Yellow-500 (Hover)
+                            black: '#0a0a0a',   // Neutral-950 (True Black)
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #171717;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FACC15;
+            border-radius: 5px;
+        }
+        
+        /* Image styling */
+        .image-card {
+            transition: transform 0.5s ease;
+        }
+        .group:hover .image-card {
+            transform: scale(1.05);
+        }
+
+        /* Hero Background handling - Using Placeholder with Black/Yellow theme */
+        .hero-bg {
+            /* Using black background and yellow text for the gym image placeholder */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('WhatsApp\ Image\ 2025-12-12\ at\ 5.50.37\ PM\ \(3\).jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .clip-diagonal {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-neutral-950 text-white font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 bg-neutral-900/90 backdrop-blur-md border-b border-neutral-800 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-dumbbell text-alfa text-3xl"></i>
+                    <span class="font-display font-bold text-2xl tracking-wider text-white">ALFA <span class="text-alfa">FITNESS</span></span>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-alfa transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="hover:text-alfa transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#gallery" class="hover:text-alfa transition-colors px-3 py-2 rounded-md text-sm font-medium">Gallery</a>
+                        <a href="#pricing" class="hover:text-alfa transition-colors px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
+                        <a href="#contact" class="bg-alfa hover:bg-alfa-dark text-black px-5 py-2 rounded-full text-sm font-medium transition-transform transform hover:scale-105">Join Now</a>
+                    </div>
+                </div>
+
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-neutral-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden hidden bg-neutral-900 border-b border-neutral-800 absolute w-full" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-alfa block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-alfa block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#gallery" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-alfa block px-3 py-2 rounded-md text-base font-medium">Gallery</a>
+                <a href="#pricing" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-alfa block px-3 py-2 rounded-md text-base font-medium">Pricing</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="text-alfa font-bold block px-3 py-2 rounded-md text-base">Join Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-bg h-screen flex items-center justify-center relative clip-diagonal">
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            <h2 class="text-alfa font-bold tracking-widest uppercase mb-4 animate-bounce">Welcome to the Gym</h2>
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 text-shadow leading-tight">
+                BUILD YOUR <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-alfa to-yellow-600">DREAM BODY</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light">
+                Premium equipment, expert trainer, and a high-energy atmosphere. Stop wishing, start doing.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#pricing" class="bg-alfa hover:bg-alfa-dark text-black font-bold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/50">
+                    VIEW PLANS
+                </a>
+                <a href="#about" class="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white font-bold py-4 px-8 rounded-full transition-all">
+                    LEARN MORE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-neutral-950 py-10 -mt-20 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-neutral-800">
+                <div class="p-4">
+                    <div class="text-4xl font-display font-bold text-white mb-2">500+</div>
+                    <div class="text-gray-400 text-sm uppercase tracking-wider">Happy Members</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-display font-bold text-white mb-2">200+</div>
+                    <div class="text-gray-400 text-sm uppercase tracking-wider">Expert Reviews</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-display font-bold text-white mb-2">20+</div>
+                    <div class="text-gray-400 text-sm uppercase tracking-wider">Machines</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-display font-bold text-white mb-2">6</div>
+                    <div class="text-gray-400 text-sm uppercase tracking-wider">Days a Week</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-alfa to-yellow-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <img src="WhatsApp Image 2025-12-12 at 5.50.37 PM (2).jpeg" alt="Gym Interior" class="image-card relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                </div>
+                
+                <div>
+                    <h3 class="text-alfa font-bold uppercase tracking-widest mb-2">About Alfa Fitness</h3>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">MORE THAN JUST A GYM</h2>
+                    <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                        At Alfa Fitness, we believe in raw power and dedication. We provide a space where beginners become pros. Equipped with our signature heavy-duty machines and a vast array of free weights, we cater to every fitness goal.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-check text-alfa mr-3"></i> Advanced Plate-Loaded Machines
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-check text-alfa mr-3"></i> Extensive Dumbbell Racks
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-check text-alfa mr-3"></i>  Trainer
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-check text-alfa mr-3"></i> Spacious Training Zones
+                        </li>
+                    </ul>
+                    <button class="text-alfa font-bold hover:text-white transition-colors flex items-center group">
+                        READ MORE <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-neutral-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-alfa font-bold uppercase tracking-widest mb-2">Our Gallery</h3>
+                <h2 class="font-display text-4xl font-bold text-white">BUILT FOR PERFORMANCE</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-xl h-80 cursor-pointer border border-neutral-800">
+                    <img src="WhatsApp Image 2025-12-12 at 5.50.36 PM.jpeg" alt="Heavy Weights" class="image-card w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h4 class="text-xl font-bold font-display text-alfa">Free Weights Zone</h4>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl h-80 cursor-pointer border border-neutral-800">
+                    <img src="WhatsApp Image 2025-12-12 at 5.50.36 PM (3).jpeg" alt="Machines" class="image-card w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h4 class="text-xl font-bold font-display text-alfa">Precision Machines</h4>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl h-80 cursor-pointer border border-neutral-800">
+                    <img src="WhatsApp Image 2025-12-12 at 5.50.36 PM (2).jpeg" alt="Racks" class="image-card w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h4 class="text-xl font-bold font-display text-alfa">Functional Training</h4>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl h-80 cursor-pointer border border-neutral-800 md:col-span-2">
+                    <img src="WhatsApp Image 2025-12-12 at 5.50.37 PM (3).jpeg" alt="Incline Press" class="image-card w-full h-full object-cover" style="object-position: center bottom;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h4 class="text-xl font-bold font-display text-alfa">Expert Training </h4>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl h-80 cursor-pointer border border-neutral-800">
+                    <img src="15355374-83ec-46bb-a67b-abfc108044ee.jpg" alt="Rack" class="image-card w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <h4 class="text-xl font-bold font-display text-alfa">Group Classes</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 bg-neutral-900 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-alfa rounded-full blur-[100px] opacity-10"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-yellow-600 rounded-full blur-[100px] opacity-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h3 class="text-alfa font-bold uppercase tracking-widest mb-2">Membership Plans</h3>
+                <h2 class="font-display text-4xl font-bold text-white">CHOOSE YOUR GRIND</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-neutral-950 rounded-3xl p-8 border border-neutral-800 hover:border-gray-600 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-900/50 flex flex-col relative">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-display font-bold text-white">IRON ACCESS</h3>
+                        <p class="text-gray-400 text-sm mt-2">Perfect for weightlifting enthusiasts.</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-5xl font-bold text-white">₹500</span>
+                        <span class="text-gray-500">/ month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-check-circle text-alfa mr-3"></i> Full Gym Floor Access
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-check-circle text-alfa mr-3"></i> Free Weights Area
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-check-circle text-alfa mr-3"></i> Locker Usage
+                        </li>
+                        <li class="flex items-center text-gray-500">
+                            <i class="fa-solid fa-times-circle mr-3"></i> No Cardio Equipment
+                        </li>
+                    </ul>
+                    <a href="#contact" class="w-full block text-center bg-transparent border border-gray-600 text-white font-bold py-3 rounded-xl hover:bg-white hover:text-black transition-colors">
+                        SELECT PLAN
+                    </a>
+                </div>
+
+                <div class="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-3xl p-8 border-2 border-alfa transform md:-translate-y-4 hover:shadow-2xl hover:shadow-alfa/20 transition-all duration-300 flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-alfa text-black text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-display font-bold text-white">FULL SHRED</h3>
+                        <p class="text-gray-400 text-sm mt-2">The complete package for total fitness.</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-5xl font-bold text-white">₹800</span>
+                        <span class="text-gray-500">/ month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center text-white">
+                            <i class="fa-solid fa-check-circle text-alfa mr-3"></i> <span class="font-bold">Everything in Iron Access</span>
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fa-solid fa-check-circle text-alfa mr-3"></i> Unlimited Cardio Access
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fa-solid fa-check-circle text-alfa mr-3"></i> Treadmills & Ellipticals
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fa-solid fa-check-circle text-alfa mr-3"></i> Free Diet Consultation
+                        </li>
+                    </ul>
+                    <a href="#contact" class="w-full block text-center bg-alfa text-black font-bold py-3 rounded-xl hover:bg-alfa-dark hover:shadow-lg transition-all">
+                        JOIN NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-neutral-950 pt-20 border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-dumbbell text-alfa text-3xl"></i>
+                        <span class="font-display font-bold text-2xl tracking-wider text-white">ALFA <span class="text-alfa">FITNESS</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-8">
+                        Your transformation starts here. Visit us today to check out the vibe and equipment.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-neutral-900 p-3 rounded-lg text-alfa">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Location</h5>
+                                <p class="text-gray-400 text-sm">Alfa Fitness Dashmesh Nagar Naya Gaon Near Ramleela Ground</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-neutral-900 p-3 rounded-lg text-alfa">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Call Us</h5>
+                                <p class="text-gray-400 text-sm">+91 9878053627</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-neutral-900 p-3 rounded-lg text-alfa">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Working Hours</h5>
+                                <p class="text-gray-400 text-sm">Mon - Sat: 5:00 AM - 10:00 PM</p>
+                                <p class="text-gray-400 text-sm">Sunday: Holiday</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-900 p-8 rounded-2xl border border-neutral-800">
+                    <h3 class="text-2xl font-bold text-white mb-6">Get In Touch</h3>
+                    <form action="https://formspree.io/f/mzznyrvr" method="POST" class="space-y-4"> 
+                        <div>
+                            <input type="text" id="contactName" name="Name" placeholder="Your Name" class="w-full bg-neutral-950 border border-neutral-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-alfa transition-colors" required>
+                        </div>
+                        <div>
+                            <input type="tel" id="contactPhone" name="Phone" placeholder="Phone Number" class="w-full bg-neutral-950 border border-neutral-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-alfa transition-colors" required>
+                        </div>
+                        <div>
+                            <select id="contactInterest" name="Interest" class="w-full bg-neutral-950 border border-neutral-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-alfa transition-colors">
+                                <option>Interested in Gym (₹500)</option>
+                                <option>Interested in Gym + Cardio (₹800)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-alfa hover:bg-alfa-dark text-black font-bold py-3 rounded-lg transition-colors">
+                            SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-neutral-900 py-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 Alfa Fitness. All rights reserved. Strength awaits.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="message-box" class="fixed bottom-5 right-5 z-50 p-4 bg-alfa text-black rounded-lg shadow-2xl transition-all duration-300 opacity-0 translate-x-full min-w-[250px] font-bold">
+        </div>
+
+    <script>
+        // Custom Message Box/Toast handler
+        function showMessageBox(message) {
+            const box = document.getElementById('message-box');
+            box.textContent = message;
+            
+            // Show the box (animate in)
+            box.classList.remove('opacity-0', 'translate-x-full');
+            box.classList.add('opacity-100', 'translate-x-0');
+
+            // Hide the box after 4 seconds (animate out)
+            setTimeout(() => {
+                box.classList.remove('opacity-100', 'translate-x-0');
+                box.classList.add('opacity-0', 'translate-x-full');
+            }, 4000);
+        }
+
+        // --- Formspree Integration Logic ---
+        // Check URL for Formspree success parameter after redirect
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('submit_success')) {
+                showMessageBox('Thanks for contacting Alfa Fitness! We will call you back shortly.');
+                
+                // Clean the URL to remove the Formspree parameter without reloading
+                history.replaceState(null, null, window.location.pathname);
+            }
+        });
+
+        // Mobile menu toggle logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.replace('bg-neutral-900/90', 'bg-neutral-900/95');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.replace('bg-neutral-900/95', 'bg-neutral-900/90');
+            }
+        });
+    </script>
+</body>
+</html>
